@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/clouthes_srore/static/css/main.1d766016.css",
+    "main.js": "/clouthes_srore/static/js/main.4171d171.js",
+    "index.html": "/clouthes_srore/index.html",
+    "main.1d766016.css.map": "/clouthes_srore/static/css/main.1d766016.css.map",
+    "main.4171d171.js.map": "/clouthes_srore/static/js/main.4171d171.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.1d766016.css",
+    "static/js/main.4171d171.js"
+  ]
+}
