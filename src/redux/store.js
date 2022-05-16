@@ -13,32 +13,31 @@ import {
   REGISTER,
 } from 'redux-persist';
 
-// const persistConfig = {
-//   key: 'root',
-//   storage,
-// }
+const persistConfig = {
+  key: 'root',
+  storage,
+};
 
 const middleware = [
-  ...getDefaultMiddleware(),
-  //     {
-  //       serializableCheck: {
-  //       ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER]
-  //     }
-  // }
-  logger,
+  ...getDefaultMiddleware({
+    serializableCheck: {
+      ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+    },
+  }),
+  //   logger,
 ];
 
 const rootReducer = {
   shopStore: shopStoreReducer,
 };
-// const persistedReducer = persistReducer(persistConfig, combineReducers(rootReducer))
+const persistedReducer = persistReducer(persistConfig, combineReducers(rootReducer));
 
 const store = configureStore({
-  // reducer: persistedReducer,
-  reducer: rootReducer,
+  reducer: persistedReducer,
+  // reducer: rootReducer,
   middleware: middleware,
 });
 
-// const persistor = persistStore(store);
+const persistor = persistStore(store);
 
-export default store;
+export default { persistor, store };

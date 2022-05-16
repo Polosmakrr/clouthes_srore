@@ -1,0 +1,54 @@
+.main_container {
+  margin: auto;
+  max-width: 1238px;
+}
+
+.main_title {
+  margin-top: 80px;
+  font-weight: 400;
+  font-size: 42px;
+}
+
+.main_list {
+  margin-bottom: 191px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.main_list_item {
+  margin-top: 103px;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  padding-left: 16px;
+  padding-right: 16px;
+
+  &:hover,
+  &:focus {
+    box-shadow: 0px 4px 35px rgba(168, 172, 176, 0.19), 0px 4px 35px rgba(168, 172, 176, 0.19),
+      0px 4px 35px rgba(168, 172, 176, 0.19);
+    background-image: url('../../picture/svg/circleIcon.svg');
+    background-repeat: no-repeat;
+    background-position: 270px 320px;
+  }
+}
+
+.main_list_card:not(:nth-child(3n)) {
+  margin-right: 40px;
+}
+
+.main_item_img {
+  width: 354px;
+  height: 330px;
+  padding-bottom: 24px;
+}
+
+.main_item_description {
+  // margin-top: 24px;
+  // margin-left: 16px;
+  // margin-right: 16px;
+  // margin-bottom: 16px;
+}
+
+.price {
+  font-weight: 500;
+}

@@ -1,0 +1,125 @@
+.myBag_container {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+.myBag {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 32px;
+}
+
+.myBag_qty {
+  font-weight: 500;
+}
+
+.myBag_item {
+  display: flex;
+  margin-bottom: 40px;
+}
+
+.myBag_info {
+  margin-right: 8px;
+  width: 148px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.myBag_title {
+  font-weight: 300;
+  font-size: 16px;
+}
+
+.myBag_price {
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.myBag_param {
+  font-weight: 400;
+  font-size: 14px;
+}
+
+.myBag_param_size,
+.myBag_param_color {
+  display: flex;
+  margin-bottom: 8px;
+}
+
+.myBag_param_size-item {
+  font-family: 'Source Sans Pro';
+  font-weight: 400;
+  font-size: 14px;
+  text-align: center;
+  height: 24px;
+  width: 24px;
+  border: solid 1px var(--black-color);
+
+  &:not(:last-child) {
+    margin-right: 8px;
+  }
+}
+
+.myBag_param_color-item {
+  width: 20px;
+  height: 20px;
+
+  &:not(:last-child) {
+    margin-right: 8px;
+  }
+}
+
+.myBag_qty_btns {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.myBag_qty_batton {
+  width: 24px;
+  height: 24px;
+}
+
+.myBag_qty_item {
+  font-size: 16px;
+  font-weight: 500;
+  text-align: center;
+}
+
+.myBag_img {
+  width: 137px;
+  height: 190px;
+  object-fit: cover;
+}
+
+.myBag_total {
+  font-family: 'Roboto';
+  font-weight: 500;
+  font-size: 16px;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 32px;
+}
+
+.myBag_total-price {
+  font-family: 'Raleway';
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.myBag_btn {
+  width: 140px;
+  font-weight: 600;
+  font-size: 14px;
+  margin-top: 32px;
+  padding-top: 13px;
+  padding-bottom: 13px;
+  text-align: center;
+  background-color: var(--white-color);
+
+  &:not(:last-child) {
+    margin-right: 12px;
+  }
+}

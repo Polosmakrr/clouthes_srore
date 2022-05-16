@@ -1,5 +1,13 @@
 import { createAction } from '@reduxjs/toolkit';
 
-const increment = createAction('items/increment');
+export const fetchStoreDataRequest = createAction('fetchRequest');
+export const fetchStoreDataSuccess = createAction('fetchSuccess');
+export const fetchStoreDataError = createAction('fetchError');
 
-export default increment;
+export const changeCurrency = createAction('changeCurrency');
+
+export const switchShowModal = createAction('switchShowModal');
+
+export const addCard = createAction('addCard');
+
+export const changeColor = createAction('changeColor');

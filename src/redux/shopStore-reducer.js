@@ -1,11 +1,26 @@
 import { combineReducers } from '@reduxjs/toolkit';
 import { createReducer } from '@reduxjs/toolkit';
-import actions from './shopStore-action';
 
-const items = createReducer([], {
-  'items/increment': (state, { payload }) => [...state, payload],
+const storeData = createReducer([], {
+  fetchSuccess: (_, { payload }) => [payload],
+});
+const currency = createReducer([], {
+  changeCurrency: (_, { payload }) => [payload],
+});
+const showModal = createReducer([], {
+  switchShowModal: (_, { payload }) => [payload],
+});
+const myBag = createReducer([], {
+  addCard: (state, { payload }) => [...state, payload],
+  changeColor: (state, { payload }) => {
+    console.log('st:', state);
+    console.log('p:', payload);
+  },
 });
 
 export default combineReducers({
-  items,
+  storeData,
+  currency,
+  showModal,
+  myBag,
 });

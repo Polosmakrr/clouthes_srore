@@ -1,0 +1,23 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(57, 55, 72, 0.22);
+  z-index: 1200;
+  overflow: auto;
+}
+
+.modal {
+  min-width: 325px;
+  max-height: 677px;
+  background-color: white;
+  scroll-behavior: smooth;
+  position: absolute;
+  top: 78px;
+  left: 1043px;
+}
