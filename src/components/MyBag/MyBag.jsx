@@ -74,11 +74,11 @@ const MyBag = ({ onClick }) => {
             {currentCurrency}
           </span>
         </p>
-        <div>
-          <button className="myBag_btn" onClick={vievBag}>
+        <div className="myBag_buttons">
+          <button className="myBag_btn btn" onClick={vievBag}>
             VIEW BAG
           </button>
-          <button className="myBag_btn">CHECK OUT</button>
+          <button className="myBag_btn btn">CHECK OUT</button>
         </div>
       </div>
     </div>,

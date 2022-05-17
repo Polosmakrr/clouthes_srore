@@ -56,6 +56,7 @@
   height: 24px;
   width: 24px;
   border: solid 1px var(--black-color);
+  cursor: pointer;
 
   &:not(:last-child) {
     margin-right: 8px;
@@ -65,6 +66,7 @@
 .myBag_param_color-item {
   width: 20px;
   height: 20px;
+  cursor: pointer;
 
   &:not(:last-child) {
     margin-right: 8px;
@@ -80,6 +82,7 @@
 .myBag_qty_batton {
   width: 24px;
   height: 24px;
+  cursor: pointer;
 }
 
 .myBag_qty_item {
@@ -109,11 +112,14 @@
   font-size: 16px;
 }
 
+.myBag_buttons {
+  margin-top: 32px;
+}
+
 .myBag_btn {
   width: 140px;
   font-weight: 600;
   font-size: 14px;
-  margin-top: 32px;
   padding-top: 13px;
   padding-bottom: 13px;
   text-align: center;

@@ -10,12 +10,16 @@ const currency = createReducer([], {
 const showModal = createReducer([], {
   switchShowModal: (_, { payload }) => [payload],
 });
+
 const myBag = createReducer([], {
-  addCard: (state, { payload }) => [...state, payload],
-  changeColor: (state, { payload }) => {
-    console.log('st:', state);
-    console.log('p:', payload);
+  addCard: (state, { payload }) => {
+    return [...state, payload];
   },
+  updateCart: (state, { payload: { index, ...item } }) => {
+    state[index] = { ...state[index], ...item };
+    return state;
+  },
+  clearMyBag: (state, { payload }) => (state = []),
 });
 
 export default combineReducers({

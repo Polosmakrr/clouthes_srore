@@ -24,7 +24,7 @@ const middleware = [
       ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
     },
   }),
-  //   logger,
+  logger,
 ];
 
 const rootReducer = {
@@ -34,7 +34,6 @@ const persistedReducer = persistReducer(persistConfig, combineReducers(rootReduc
 
 const store = configureStore({
   reducer: persistedReducer,
-  // reducer: rootReducer,
   middleware: middleware,
 });
 

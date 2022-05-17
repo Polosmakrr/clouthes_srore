@@ -1,11 +1,13 @@
 import { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import * as actions from '../../redux/shopStore-action';
 
 const MyBagItem = ({ myBag }) => {
   const currency = useSelector(state => state.shopStore.currency);
   const [currentCurrency, setCurrentCurrency] = useState();
-  const [size, setSize] = useState();
-  const [color, setColor] = useState();
+  let data = [];
+
+  const dispatch = useDispatch();
 
   useEffect(() => {
     if (currency[0] === 'USD') {
@@ -22,51 +24,17 @@ const MyBagItem = ({ myBag }) => {
     }
   }, [currency]);
 
-  //     const choseColor = (e) => {
-  //     if (document.querySelector('.color_active') !== null) {
-  //         document.querySelector('.color_active').classList.remove('color_active');
-  //     }
-  //         setColor(e.target.id);
-  //     e.target.className = 'myBag_param_color-item color_active';
-  // }
-
-  // const choseSize = (e) => {
-  //     if (document.querySelector('.size_active') !== null) {
-  //         document.querySelector('.size_active').classList.remove('size_active')
-  //     }
-  //     setSize(e.target.id);
-  //     e.target.className='myBag_param_size-item size_active'
-  // }
-
-  const choseColor = e => {
-    const elem = e.target.parentElement.children;
-
-    for (let i = 0; i < elem.length; i += 1) {
-      if (elem[i].className === 'myBag_param_color-item color_active') {
-        elem[i].className = 'myBag_param_color-item';
-      }
-      if (elem[i].id === e.target.id) {
-        elem[i].className = 'myBag_param_color-item color_active';
-        setColor(e.target.id);
-      }
-    }
+  const changeColor = (index, chosedColor) => {
+    dispatch(actions.updateCart({ index, chosedColor }));
   };
 
-  const choseSize = e => {
-    const elem = e.target.parentElement.children;
-
-    for (let i = 0; i < elem.length; i += 1) {
-      if (elem[i].className === 'myBag_param_size-item size_active') {
-        elem[i].className = 'myBag_param_size-item';
-      }
-      if (elem[i].id === e.target.id) {
-        elem[i].className = 'myBag_param_size-item size_active';
-        setColor(e.target.id);
-      }
-    }
+  const changeSize = (index, chosedSize) => {
+    dispatch(actions.updateCart({ index, chosedSize }));
   };
 
-  let data = [];
+  const changeQty = (index, qty) => {
+    dispatch(actions.updateCart({ index, qty }));
+  };
 
   if (myBag.length === 1) {
     data = [myBag[0]];
@@ -77,7 +45,7 @@ const MyBagItem = ({ myBag }) => {
 
   return (
     <>
-      {data.map(item => (
+      {data.map((item, index) => (
         <div className="myBag_item">
           <div className="myBag_info">
             <div>
@@ -92,11 +60,19 @@ const MyBagItem = ({ myBag }) => {
                 {item[0].size.map(it => (
                   <>
                     {item.chosedSize === it ? (
-                      <p className="myBag_param_size-item size_active" onClick={choseSize} id={it}>
+                      <p
+                        className="myBag_param_size-item size_active"
+                        onClick={() => changeSize(index, it)}
+                        id={it}
+                      >
                         {it}
                       </p>
                     ) : (
-                      <p className="myBag_param_size-item" onClick={choseSize} id={it}>
+                      <p
+                        className="myBag_param_size-item"
+                        onClick={() => changeSize(index, it)}
+                        id={it}
+                      >
                         {it}
                       </p>
                     )}
@@ -111,7 +87,7 @@ const MyBagItem = ({ myBag }) => {
                       <p
                         className="myBag_param_color-item color_active"
                         style={{ backgroundColor: it }}
-                        onClick={choseColor}
+                        onClick={() => changeColor(index, it)}
                         id={it}
                       >
                         {' '}
@@ -120,7 +96,7 @@ const MyBagItem = ({ myBag }) => {
                       <p
                         className="myBag_param_color-item"
                         style={{ backgroundColor: it }}
-                        onClick={choseColor}
+                        onClick={() => changeColor(index, it)}
                         id={it}
                       >
                         {' '}
@@ -131,9 +107,17 @@ const MyBagItem = ({ myBag }) => {
               </div>
             </div>
             <div className="myBag_qty_btns">
-              <button className="myBag_qty_batton">+</button>
+              <button className="myBag_qty_batton" onClick={() => changeQty(index, item.qty + 1)}>
+                +
+              </button>
               <p className="myBag_qty_item">{item.qty}</p>
-              <button className="myBag_qty_button">-</button>
+              <button
+                className="myBag_qty_button"
+                onClick={() => changeQty(index, item.qty - 1)}
+                disabled={item.qty === 1}
+              >
+                -
+              </button>
             </div>
           </div>
           <img

@@ -40,26 +40,17 @@
 .emptyCart {
   width: 20px;
   height: 20px;
+  cursor: pointer;
 }
 
 .currency_list {
-  // font-family: 'Raleway';
-  // font-style: normal;
   font-weight: 500;
   font-size: 18px;
   width: 38px;
   height: 29px;
   border: none;
   margin-right: 22px;
-}
-
-.currency_item {
-  // font-family: 'Raleway';
-  // font-style: normal;
-  // font-weight: 500;
-  // padding-top: 20px;
-  // width: 114px;
-  // height: 169px;
+  cursor: pointer;
 }
 
 .nav_btn {

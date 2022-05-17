@@ -8,11 +8,13 @@ import MyBag from '../MyBag/MyBag';
 
 export const Navigation = () => {
   const myBag = useSelector(state => state.shopStore.myBag);
+  const currentCurrency = useSelector(state => state.shopStore.currency);
   const [toggle, setToggle] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
-
   const dispatch = useDispatch();
+
+  let qty = 0;
 
   const changingCurrency = e => {
     dispatch(actions.changeCurrency(e.currentTarget.value));
@@ -29,6 +31,13 @@ export const Navigation = () => {
   };
 
   useEffect(() => {
+    const options = document.querySelector('.currency_list').options;
+    for (let i = 0; i < options.length; i += 1) {
+      if (options[i].value === currentCurrency[0]) {
+        options[i].selected = true;
+      }
+    }
+
     if (myBag.length === 0) {
       document.querySelector('.qty').style.display = 'none';
     }
@@ -40,8 +49,6 @@ export const Navigation = () => {
     }
     dispatch(actions.switchShowModal(toggle));
   }, [dispatch, location.pathname, myBag.length, navigate, toggle]);
-
-  let qty = 0;
 
   const sumQty = el => {
     return (qty += el);
@@ -78,7 +85,6 @@ export const Navigation = () => {
                 &yen; JPY
               </option>
             </select>
-
             <button className="nav_btn" onClick={onClick} disabled={myBag.length === 0}>
               <img className="emptyCart" src={emptyCart} alt="cart"></img>
               <p className="qty">{qty}</p>

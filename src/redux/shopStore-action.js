@@ -10,4 +10,6 @@ export const switchShowModal = createAction('switchShowModal');
 
 export const addCard = createAction('addCard');
 
-export const changeColor = createAction('changeColor');
+export const updateCart = createAction('updateCart');
+
+export const clearMyBag = createAction('clearMyBag');

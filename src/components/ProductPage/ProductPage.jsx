@@ -74,6 +74,7 @@ const ProductPage = () => {
           qty: 1,
         }),
       );
+
       toast.success('Added to bag!');
 
       return;
@@ -127,7 +128,7 @@ const ProductPage = () => {
                   {currentCurrency}
                   {item.price}
                 </p>
-                <button className="productPage_infi_btn" onClick={addToCart}>
+                <button className="productPage_infi_btn btn" onClick={addToCart}>
                   ADD TO CART
                 </button>
                 <p className="productPage_info_description">{item.description}</p>
@@ -136,7 +137,7 @@ const ProductPage = () => {
           </>
         ))}
       </div>
-      <ToastContainer autoClose={2000} />
+      <ToastContainer autoClose={1000} />
     </>
   );
 };
