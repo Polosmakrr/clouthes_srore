@@ -10,8 +10,6 @@ const Cart = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const tax = 15;
-  let total = 0;
-  let allQty = 0;
 
   useEffect(() => {
     if (currency[0] === 'USD') {
@@ -76,14 +74,6 @@ const Cart = () => {
     dispatch(actions.updateCart({ index, qty }));
   };
 
-  const sumQty = el => {
-    return (allQty += el);
-  };
-
-  const sumTotal = el => {
-    return (total += el);
-  };
-
   const getOrder = () => {
     dispatch(actions.clearMyBag([]));
   };
@@ -91,8 +81,19 @@ const Cart = () => {
   const goToStore = () => {
     navigate('/clouthes_store');
   };
-  data.forEach(item => sumTotal(item[0].price * item.qty));
-  data.forEach(item => sumQty(item.qty));
+
+  const changeImg = (index, it) => {
+    console.log(index);
+    console.log(it);
+  };
+
+  const allQty = data.reduce((prev, item) => {
+    return prev + item.qty;
+  }, 0);
+
+  const total = data.reduce((prev, item) => {
+    return prev + item[0].price * item.qty;
+  }, 0);
 
   return (
     <>
@@ -217,10 +218,15 @@ const Cart = () => {
               </span>
             </p>
             <p className="results_text">
-              Qty:<span className="results_price">{allQty}</span>
+              Qty:<span className="results_price"> {allQty}</span>
             </p>
             <p className="results_total">
-              Total:<span className="results_price">{total + tax}</span>
+              Total:
+              <span className="results_price total">
+                {' '}
+                {total + tax}
+                {currentCurrency}
+              </span>
             </p>
             <button className="results_order_btn btn" onClick={getOrder}>
               ORDER

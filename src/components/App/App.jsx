@@ -16,6 +16,16 @@ function App() {
         <Route path="kids" element={<Kids />} />
         <Route path="info:id" element={<ProductPage />} />
         <Route path="cart" element={<Cart />} />
+        <Route
+          path="*"
+          element={
+            <main style={{ padding: '1rem' }}>
+              <p style={{ fontSize: '36px', fontWeight: 'bold', textAlign: 'center' }}>
+                Page Not Found
+              </p>
+            </main>
+          }
+        />
       </Route>
     </Routes>
   );

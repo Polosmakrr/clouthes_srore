@@ -41,19 +41,13 @@ const MyBag = ({ onClick }) => {
     }
   }, [currency]);
 
-  let total = 0;
-  let qty = 0;
+  const allQty = myBag.reduce((prev, item) => {
+    return prev + item.qty;
+  }, 0);
 
-  const sumQty = el => {
-    return (qty += el);
-  };
-
-  const sumTotal = el => {
-    return (total += el);
-  };
-
-  myBag.forEach(item => sumTotal(item[0].price * item.qty));
-  myBag.forEach(item => sumQty(item.qty));
+  const total = myBag.reduce((prev, item) => {
+    return prev + item[0].price * item.qty;
+  }, 0);
 
   const vievBag = () => {
     navigate('cart');
@@ -64,7 +58,7 @@ const MyBag = ({ onClick }) => {
     <div className="overlay" onClick={handleBackdropClick}>
       <div className="myBag_container modal">
         <h3 className="myBag">
-          My Bag:<span className="myBag_qty">{qty} items</span>
+          My Bag:<span className="myBag_qty">{allQty} items</span>
         </h3>
         <MyBagItem myBag={myBag} />
         <p className="myBag_total">
