@@ -38,15 +38,16 @@ export const Navigation = () => {
       }
     }
 
+    if (location.pathname === '/clouthes_store/') {
+      navigate('/clouthes_store/woman');
+    }
     if (myBag.length === 0) {
       document.querySelector('.qty').style.display = 'none';
     }
     if (myBag.length !== 0) {
       document.querySelector('.qty').style.display = 'flex';
     }
-    if (location.pathname === '/clouthes_store') {
-      navigate('/clouthes_store/woman');
-    }
+
     dispatch(actions.switchShowModal(toggle));
   }, [dispatch, location.pathname, myBag.length, navigate, toggle]);
 
