@@ -79,7 +79,7 @@ const Cart = () => {
   };
 
   const goToStore = () => {
-    navigate('/clouthes_store');
+    navigate('/clouthes_store/woman');
   };
 
   const onDelete = id => {
