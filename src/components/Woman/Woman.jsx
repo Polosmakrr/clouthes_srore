@@ -16,7 +16,7 @@ const Woman = () => {
   }, []);
 
   return (
-    <div className="main_container">
+    <div className="main_container container">
       <h2 className="main_title">Woman</h2>
       <WomanItem data={data} />
     </div>

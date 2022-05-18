@@ -102,7 +102,7 @@ const Cart = () => {
     <>
       {data.length === 0 ? (
         <>
-          <div className="cart_container">
+          <div className="cart_container container">
             <h2 className="cart_container_title">CART</h2>
             <p className="text_alert">Thanks for the order!</p>
             <button className="go_to_store btn" onClick={goToStore}>
@@ -112,7 +112,7 @@ const Cart = () => {
         </>
       ) : (
         <>
-          <div className="cart_container">
+          <div className="cart_container container">
             <h2 className="cart_container_title">CART</h2>
             {data.map((item, index) => (
               <div className="cart_item">
@@ -215,7 +215,7 @@ const Cart = () => {
               </div>
             ))}
           </div>
-          <div className="results_container">
+          <div className="results_container container">
             <p className="results_text">
               Tax:
               <span className="results_price">

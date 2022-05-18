@@ -38,7 +38,7 @@ export const Navigation = () => {
       }
     }
 
-    if (location.pathname === '/clouthes_store/') {
+    if (location.pathname === '/clouthes_store') {
       navigate('/clouthes_store/woman');
     }
     if (myBag.length === 0) {
@@ -59,7 +59,7 @@ export const Navigation = () => {
   return (
     <>
       <nav>
-        <div className="nav_container">
+        <div className="nav_container container">
           <div className="nav_link">
             <NavLink className="nav_link_item" to="woman">
               Woman

@@ -19,5 +19,18 @@
   scroll-behavior: smooth;
   position: absolute;
   top: 78px;
-  left: 1043px;
+
+  @media screen and (min-width: 768px) {
+    left: 400px;
+  }
+
+  @media screen and (min-width: 1200px) {
+    left: 850px;
+  }
+
+  @media screen and (min-width: 1600px) {
+    position: absolute;
+    top: 78px;
+    left: 1043px;
+  }
 }

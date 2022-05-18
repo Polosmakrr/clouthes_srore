@@ -84,7 +84,7 @@ const ProductPage = () => {
 
   return (
     <>
-      <div className="productPage_container">
+      <div className="productPage_container container">
         {cardInfo.map(item => (
           <>
             <ul className="productPage_img_list">
@@ -128,7 +128,7 @@ const ProductPage = () => {
                   {currentCurrency}
                   {item.price}
                 </p>
-                <button className="productPage_infi_btn btn" onClick={addToCart}>
+                <button className="productPage_info_btn btn" onClick={addToCart}>
                   ADD TO CART
                 </button>
                 <p className="productPage_info_description">{item.description}</p>
