@@ -15,9 +15,29 @@
   justify-content: space-between;
   align-items: center;
   border-top: 1px solid #e5e5e5;
+  position: relative;
 
   &:last-child {
     border-bottom: 1px solid #e5e5e5;
+  }
+}
+
+.cart_delete {
+  position: absolute;
+  top: 10px;
+  left: 1215px;
+  height: 20px;
+  width: 20px;
+  font-size: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+
+  &:hover,
+  :focus {
+    background-color: rgba(255, 0, 0, 0.8);
+    color: var(--white-color);
   }
 }
 

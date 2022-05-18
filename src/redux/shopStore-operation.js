@@ -7,7 +7,6 @@ axios.defaults.baseURL = 'https://62658ffcdbee37aff9a6bf70.mockapi.io/';
 export const fetchStoreData = () => dispatch => {
   dispatch(actions.fetchStoreDataRequest());
 
-  // axios.get('/store')
   axios
     .get('/store')
     .then(({ data }) => {

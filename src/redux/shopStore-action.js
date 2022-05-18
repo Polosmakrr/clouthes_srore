@@ -13,3 +13,5 @@ export const addCard = createAction('addCard');
 export const updateCart = createAction('updateCart');
 
 export const clearMyBag = createAction('clearMyBag');
+
+export const onDelete = createAction('onDelete');

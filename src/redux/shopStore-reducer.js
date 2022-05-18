@@ -19,7 +19,10 @@ const myBag = createReducer([], {
     state[index] = { ...state[index], ...item };
     return state;
   },
-  clearMyBag: (state, { payload }) => (state = []),
+  onDelete: (state, { payload }) => {
+    return state.filter(item => item[0].id !== payload);
+  },
+  clearMyBag: state => (state = []),
 });
 
 export default combineReducers({

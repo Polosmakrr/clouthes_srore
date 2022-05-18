@@ -82,9 +82,12 @@ const Cart = () => {
     navigate('/clouthes_store');
   };
 
-  const changeImg = (index, it) => {
-    console.log(index);
-    console.log(it);
+  const onDelete = id => {
+    console.log('length', data.length);
+    if (data.length === 1) {
+      goToStore();
+    }
+    dispatch(actions.onDelete(id));
   };
 
   const allQty = data.reduce((prev, item) => {
@@ -206,6 +209,9 @@ const Cart = () => {
                     </button>
                   </div>
                 </div>
+                <button className="cart_delete" onClick={() => onDelete(item[0].id)}>
+                  &#128473;
+                </button>
               </div>
             ))}
           </div>
